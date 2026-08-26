@@ -50,7 +50,9 @@ pnpm add "dsh-task-graph@link:/path/to/dsh-task-graph"
 pnpm install
 ```
 
-重启（或在 DSH 中重新加载 Web UI）后，侧边栏会出现「执行图谱」入口；点击即在会话区上方打开图谱视图。
+重启（或在 DSH 中重新加载 Web UI）后，原生「对话 / 轨迹」标签旁会出现第三个「图谱」Tab；点击后只在内容区展示任务执行图谱——标签栏、侧边栏与其它功能入口保持可见。点回「对话 / 轨迹」或按 Esc 即恢复原视图。
+
+![DSH 内的图谱 Tab](docs/images/dsh-tab-active.png)
 
 > 服务端需要 Node ≥ 22.15（用内置 `zlib.zstdDecompressSync` 解码 `.zstd` 会话，零原生依赖）。
 

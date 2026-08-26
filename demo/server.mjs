@@ -70,6 +70,16 @@ function serveFile(res, path) {
 }
 
 const server = createServer((req, res) => {
+  // demo-only CORS: lets the client be injected into another origin (e.g. a
+  // running DSH web UI during development) without touching plugin code.
+  const origWriteHead = res.writeHead.bind(res);
+  res.writeHead = (status, ...rest) => {
+    const headers = rest.length > 0 && typeof rest[rest.length - 1] === 'object' ? rest[rest.length - 1] : {};
+    headers['access-control-allow-origin'] ??= '*';
+    if (rest.length === 0) return origWriteHead(status, headers);
+    rest[rest.length - 1] = headers;
+    return origWriteHead(status, ...rest);
+  };
   let url;
   try {
     url = new URL(req.url ?? '/', 'http://localhost');
