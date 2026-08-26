@@ -1,0 +1,61 @@
+{
+  "name": "dsh-task-graph",
+  "version": "0.1.0",
+  "description": "Task Flow / Execution Graph plugin for DeepSeek Harness (DSH): visualize a single task's full execution — turns, LLM steps, tools, skills, subagents, retries, parallel branches — as an interactive DAG with live updates and trajectory linkage.",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "task-graph",
+    "execution-graph",
+    "trajectory",
+    "visualization"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./graph": "./lib/graph.js",
+    "./analytics": "./lib/analytics.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.1-rc.1",
+      "node": "^22.19.0 || >=24.0.0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node demo/server.mjs"
+  },
+  "engines": {
+    "node": "^22.15.0 || >=23.8.0"
+  },
+  "files": [
+    "lib",
+    "demo",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsh-task-graph/dsh-task-graph.git"
+  },
+  "homepage": "https://github.com/dsh-task-graph/dsh-task-graph",
+  "bugs": {
+    "url": "https://github.com/dsh-task-graph/dsh-task-graph/issues"
+  }
+}
