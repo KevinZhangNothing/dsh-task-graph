@@ -1,5 +1,7 @@
 # dsh-task-graph · DSH 单任务执行流程图谱
 
+**中文** | [English](README_EN.md)
+
 > 给 [DeepSeek Harness (DSH)](https://github.com/deepseek-ai/dsh) 的**单个任务**画一张可交互的执行流程图谱：从 `任务开始 → Agent / Skill / Tool → 子任务 → 代码改动 → 测试 → 成功 / 失败 / 重试` 一眼看清，支持实时执行状态与历史回溯。
 
 ![图谱总览（横向 DAG · 类型色块 · 关键节点）](docs/images/hero.png)
@@ -93,18 +95,26 @@ npm run demo -- --port 8123
 
 打开打印出的地址即可；图谱会悬浮在页面上，自动加载任务。
 
-### 作为 DSH 插件安装
+### 作为 DSH 插件安装（一行命令）
 
-本插件遵循 DSH profile bundle 约定（`cordis.patch.yml` + `dsh.client`），与插件市场里的其它插件一致。把它链接进你的 web profile：
+```bash
+dsh plugin --profile web add github:KevinZhangNothing/dsh-task-graph
+```
+
+`dsh plugin` 会调用 pnpm 安装，并**自动**把声明了 `dsh.bundle` 的包注册进 `dsh.profile.bundles`（已实测）。重启引擎（或重新加载 Web UI）后，原生「对话 / 轨迹」标签旁会出现第三个「**图谱**」Tab。
+
+> 发布到 npm 后即可直接 `dsh plugin --profile web add dsh-task-graph`；
+> 也可以在插件市场（dshmarket）里搜索安装。
+
+点击「图谱」后只在内容区展示任务执行图谱——标签栏、侧边栏与其它功能入口保持可见。点回「对话 / 轨迹」或按 `Esc` 即恢复原视图。
+
+### 本地开发安装
 
 ```bash
 cd "$DSH_HOME/profiles/web"
-pnpm add "dsh-task-graph@link:/path/to/dsh-task-graph"
-# 然后在 package.json 的 dsh.profile.bundles 里加入 "dsh-task-graph"
-pnpm install
+dsh plugin --profile web add link:/path/to/dsh-task-graph
+# 或手工：pnpm add "dsh-task-graph@link:/path/to/dsh-task-graph"
 ```
-
-重启（或在 DSH 中重新加载 Web UI）后，原生「对话 / 轨迹」标签旁会出现第三个「**图谱**」Tab；点击后只在内容区展示任务执行图谱——标签栏、侧边栏与其它功能入口保持可见。点回「对话 / 轨迹」或按 `Esc` 即恢复原视图。
 
 > 服务端需要 Node ≥ 22.15（用内置 `zlib.zstdDecompressSync` 解码 `.zstd` 会话，零原生依赖）。
 
