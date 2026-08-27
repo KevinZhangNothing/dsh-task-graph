@@ -4,7 +4,7 @@
 
 > An interactive **execution-flow graph for a single task** in [DeepSeek Harness (DSH)](https://github.com/deepseek-ai/dsh): see the whole run at a glance — `task start → Agent / Skill / Tool → subtasks → code changes → tests → success / failure / retries` — with live execution status and historical replay.
 
-![Overview: horizontal DAG · type-tinted cards · key nodes](docs/images/hero.png)
+![Overview: snake layout · type-tinted cards · key nodes](docs/images/hero.png)
 
 - **Task First** — the first-class concept is the Task (one session), not a Session/Message/Event firehose.
 - **Graph First** — open a task and see the execution graph, not a wall of logs.
@@ -49,10 +49,11 @@ Click any key node and the right-hand panel shows **what actually happened**:
 
 ### Layouts & interaction
 
-- **Horizontal DAG (default)** — the conversation pane is landscape, so the graph flows left→right with turns as columns; one-click toggle between ⇄ horizontal / ⇅ vertical
+- **Snake (default)** — up to 6 key nodes per row, left→right, wrap down, right→left (boustrophedon); ordered by the task→turn→key-event execution narrative, so you read the whole run like a document
+- **DAG** — layered directed graph; one-click toggle between ⇄ horizontal / ⇅ vertical
 - **Timeline** — events placed at their real timestamps; parallels and costs at a glance
 - **Force** — free exploration of complex relations
-- Zoom / pan / fit, hierarchical collapse & expand, type filters, search, focus node, neighborhood highlight
+- **Wheel scrolls vertically** through long graphs; `Ctrl/⌘ + wheel` zooms at the cursor (bounded 0.3×–2.2× so it never shrinks unreadably); drag to pan, ⤢ fit-to-width, collapse/expand, type filters, search, focus node, neighborhood highlight
 
 ![Timeline layout](docs/images/timeline.png)
 
@@ -194,7 +195,7 @@ docs/       data-model.md · trajectory-events.md · spec.md · images/
 
 - [x] MVP: single-task graph, Task→Agent→Tool→Result, DAG, statuses, detail panel, Graph↔Trajectory, zoom/collapse, retries, live updates
 - [x] Phase 2: Skill/SubAgent, parallelism, loops, critical path, timeline, tokens/summary, search/filter
-- [x] Experience polish: key-node view, type-tinted cards, horizontal layout, glass theme, live timers/flow edges
+- [x] Experience polish: key-node view, type-tinted cards, snake layout, bounded zoom + vertical scrolling, glass theme, live timers/flow edges
 - [ ] Phase 3: business-knowledge nodes, code semantic graph (Producer/Transformer/Consumer, call chains), candidate-code → Patch → Test loop
 
 ## License
