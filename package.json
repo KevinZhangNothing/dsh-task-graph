@@ -52,10 +52,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dsh-task-graph/dsh-task-graph.git"
+    "url": "git+https://github.com/KevinZhangNothing/dsh-task-graph.git"
   },
-  "homepage": "https://github.com/dsh-task-graph/dsh-task-graph",
+  "homepage": "https://github.com/KevinZhangNothing/dsh-task-graph",
   "bugs": {
-    "url": "https://github.com/dsh-task-graph/dsh-task-graph/issues"
+    "url": "https://github.com/KevinZhangNothing/dsh-task-graph/issues"
   }
 }
