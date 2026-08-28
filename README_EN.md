@@ -50,10 +50,10 @@ Click any key node and the right-hand panel shows **what actually happened**:
 ### Layouts & interaction
 
 - **Snake (default)** — up to 6 key nodes per row, left→right, wrap down, right→left (boustrophedon); ordered by the task→turn→key-event execution narrative, so you read the whole run like a document
-- **DAG** — layered directed graph; one-click toggle between ⇄ horizontal / ⇅ vertical
+- **DAG** — layered directed graph (horizontal), for hierarchy/dependency reading
 - **Timeline** — events placed at their real timestamps; parallels and costs at a glance
 - **Force** — free exploration of complex relations
-- **Wheel scrolls vertically** through long graphs; `Ctrl/⌘ + wheel` zooms at the cursor (bounded 0.3×–2.2× so it never shrinks unreadably); drag to pan, ⤢ fit-to-width, collapse/expand, type filters, search, focus node, neighborhood highlight
+- **Wheel scrolls vertically** through long graphs; `Ctrl/⌘ + wheel` zooms at the cursor (bounded 0.3×–2.2× so it never shrinks unreadably); drag to pan, ⤢ fit-to-width, ⇕ collapse-to-turns overview / expand all, type filters, search, focus node, neighborhood highlight
 
 ![Timeline layout](docs/images/timeline.png)
 
